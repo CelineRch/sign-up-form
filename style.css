@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'cameo_sans_demoregular';
+    src: url('fonts/cameosansdemo-webfont.woff2') format('woff2'),
+         url('fonts/cameosansdemo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {    
+    display: flex;
+    height: 100vh;
+    background-color: rgb(220, 225, 236);
+}
+
+.right {
+    background-color: rgb(164, 190, 140);
+    flex: 1;
+}
+
+.left {
+    background: url("/images/kikis-delivery-service-realism-portrait-3c4aj8820xfb6ga3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40vw;
+
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    font-family: 'cameo_sans_demoregular';
+    width: 100%;
+    height: 4em;
+    font-size: clamp(1rem, 5vw, 2rem);
+    color: white;
+    background-color: rgb(0, 0, 0, 0.3);
+    margin-top: 5em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title img {
+    height: 3.5em;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+.right div {
+    height: calc(100% / 3);
+    border: 1px solid grey;
+}
+
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .title {
+    margin: 0;
+  }
+}
