@@ -4,7 +4,21 @@
          url('fonts/cameosansdemo-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --paddding: 30px;
+    --gap: 50px;
+    --pink: rgb(196, 117, 117);
 }
 
 * {
@@ -15,13 +29,7 @@
 
 body {    
     display: flex;
-    height: 100vh;
-    background-color: rgb(220, 225, 236);
-}
-
-.right {
-    background-color: rgb(164, 190, 140);
-    flex: 1;
+    height: 100%;
 }
 
 .left {
@@ -29,7 +37,7 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 40vw;
+    width: 42vw;
 
     display: flex;
     justify-content: center;
@@ -39,7 +47,7 @@ body {
     font-family: 'cameo_sans_demoregular';
     width: 100%;
     height: 4em;
-    font-size: clamp(1rem, 5vw, 2rem);
+    font-size: clamp(2rem, 4vw, 2.5rem);
     color: white;
     background-color: rgb(0, 0, 0, 0.3);
     margin-top: 5em;
@@ -54,16 +62,82 @@ body {
 }
 
 .right {
+    background-color: rgb(245, 248, 248);
+    flex: 1;
+    font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: var(--gap);
 }
 
-.right div {
-    height: calc(100% / 3);
-    border: 1px solid grey;
+.header {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  padding: var(--paddding);
+  padding-top: calc(var(--paddding) * 4);
+  color: var(--pink);
 }
 
-@media (max-width: 600px) {
+.cells {
+  font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+  background-color: white;
+  box-shadow: 3px 1px 3px 1px var(--pink);
+  padding: 50px var(--paddding);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%; 
+}
+
+.cells legend {
+  padding-top: calc(var(--paddding) + 30px);
+  font-weight: bold;
+  font-size: calc(1em + 0.3rem);
+}
+
+input {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 10%;
+  height: 30px;
+  width: 250px;
+  border: 1px solid rgb(220, 221, 221);
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid var(--pink);
+  box-shadow: 2px 2px 5px 0 rgb(192, 192, 192);
+}
+
+input:invalid {
+  outline: none;
+  border: 1px solid rgb(226, 50, 50);
+}
+
+.submit {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--paddding);
+  gap: 30px;
+}
+
+button {
+  background-color: var(--pink);
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+  border: none;
+  box-shadow: 2px 2px 7px 0 rgb(148, 143, 143);
+}
+
+
+@media (max-width: 800px) {
   body {
     flex-direction: column;
   }
@@ -72,7 +146,15 @@ body {
     width: 100%;
   }
 
+  .cells {
+    flex-direction: column;
+  }
+
   .title {
     margin: 0;
+  }
+
+  .cells, .submit {
+    align-items: center;
   }
 }
